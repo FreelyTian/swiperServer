@@ -12,11 +12,7 @@ class QrPage extends StatelessWidget {
 
  void initialize() async {
    WidgetsFlutterBinding.ensureInitialized();
-    await Supabase.initialize(
-      url: 'https://pkeydjfhoptfegirxahh.supabase.co',
-      anonKey:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBrZXlkamZob3B0ZmVnaXJ4YWhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE5OTM1MzMsImV4cCI6MjAyNzU2OTUzM30.TX9INE0QwxikLE0VCmdQ9-sFnvMfAHrw_H-6Cz8zBBk',
-    );
+    
  }
 
  void insert() async {
