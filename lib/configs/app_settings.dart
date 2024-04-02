@@ -26,7 +26,7 @@ class AppSettings {
     await _prefs.setString('id', id);
   }
 
-  Future<bool> isEmpty() async { 
+  Future<bool> isEmpty() async {
     await _startPreferences();
     String id = _prefs.getString('id') ?? '0';
     return id == '0';
@@ -34,7 +34,6 @@ class AppSettings {
 
   readData() async {
     await _readSettings();
-    print("id: ${localS['id']}");
     return localS['id'] ?? 'id não encontrado';
   }
 }
