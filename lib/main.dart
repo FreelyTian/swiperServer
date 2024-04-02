@@ -17,6 +17,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   late String id;
+  String msg = 'Leia o código abaixo para se conectar!';
 
   @override
   void initState() {
@@ -31,6 +32,9 @@ class _MainAppState extends State<MainApp> {
       id = await stts.readData();
     } else {
       id = await stts.readData();
+      setState(() {
+        msg = 'Seu código de conexão é: $id';
+      });
     }
     setState(() {}); // Para reconstruir o widget com o novo valor de id
   }
@@ -38,8 +42,19 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(brightness: Brightness.dark),
-      home: QrPage(id: id),
-    );
+        theme: ThemeData(brightness: Brightness.dark),
+        home: Scaffold(
+            body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                msg,
+                style: const TextStyle(fontSize: 24),
+              ),
+              QrPage(id: id),
+            ],
+          ),
+        )));
   }
 }
